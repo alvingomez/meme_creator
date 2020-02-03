@@ -70,3 +70,5 @@ node_modules/
 firebase.json
 functions/
 
+#JSON
+package.lock.jason
