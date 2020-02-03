@@ -71,4 +71,4 @@ firebase.json
 functions/
 
 #JSON
-package.lock.jason
+package-lock.jason
