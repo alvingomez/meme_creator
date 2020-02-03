@@ -4,7 +4,8 @@
   "description": "A JavaScript Meme Creator App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": "git+https://github.com/alvingomez/meme_creator.git",
   "author": "Alvin Gomez",
@@ -12,5 +13,9 @@
   "bugs": {
     "url": "https://github.com/alvingomez/meme_creator/issues"
   },
-  "homepage": "https://github.com/alvingomez/meme_creator#readme"
+  "homepage": "https://github.com/alvingomez/meme_creator#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
 }
