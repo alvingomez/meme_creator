@@ -1,5 +1,6 @@
 import './general';
-
+//Variable to store device width
+const deviceWidth = window.innerWidth;
 
 class Memes {
  constructor() {
