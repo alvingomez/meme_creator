@@ -1,4 +1,5 @@
 import './general';
+
 //Variable to store device width
 const deviceWidth = window.innerWidth;
 
@@ -12,4 +13,12 @@ this.$bottomTextInput = document.querySelector('#bottomText');
 this.$imageInput  = document.querySelector('#image');
 this.$downloadButton = document.querySelector('#donwloadMeme');
  }
+
+ //
+createCanvas() {
+ let canvasHeight = Math.min(480, deviceWidth-30);
+ let canvasWidth = Math.min(640, deviceWidth-30);
+ this.$canvas.height = canvasHeight;
+ this.$canvas.width = canvasWidth; 
+}
 }
