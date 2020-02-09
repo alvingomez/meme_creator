@@ -1,5 +1,8 @@
 import './general';
 
+//Variable to store device width
+const deviceWidth = window.innerWidth;
+
 
 class Memes {
  constructor() {
@@ -10,5 +13,19 @@ this.$topTextInput = document.querySelector('#topText');
 this.$bottomTextInput = document.querySelector('#bottomText');
 this.$imageInput  = document.querySelector('#image');
 this.$downloadButton = document.querySelector('#donwloadMeme');
+
+this.createCanvas;
  }
+
+ //Creating a Canvas with height and width 
+ //Reduced the width by 30 to have space for the margins.
+ createCanvas() {
+  let canvasHeight = Math.min(480, deviceWidth - 30);
+  let canvasWidth = Math.min(640, deviceWidth - 30);
+  this.$canvas.height = canvasHeight;
+  this.$canvas.width = canvasWidth; 
+ 
 }
+}
+
+

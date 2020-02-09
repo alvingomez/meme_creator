@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
  mode: 'development',
  entry: {
-  app: './src/js/memes.js',
+  memes: './src/js/memes.js',
   general: './src/js/general.js'
  },
  output: {
@@ -13,7 +13,7 @@ module.exports = {
  module: {
   rules: [{
    loader: 'babel-loader',
-   test: /\.jss$/,
+   test: /\.js$/,
    exclude: /node_modules/
   },
   {
