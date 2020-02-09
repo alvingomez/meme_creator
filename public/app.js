@@ -97,7 +97,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"styles.css"}]);
+exports.push([module.i, "\nbody {\n padding-top: 65px; \n}\n\n/***primary content area***/\n.body{\n display:flex;  \n flex-direction:row;\n flex-wrap:wrap;\n justify-content:space-around;\n}\n\n/***Canvas***/\n.canvas-area{\n flex:2;\n display:flex;\n align-items:center;\n margin:10px;\n}\n.img-canvas{\n border:1px solid #000000;\n}\n\n/***Input Area***/\n.input-area{\n flex:1;\n display: flex;\n flex-direction:column;\n align-items:center;\n justify-content: center;\n margin:1rem;\n}\n\n.form-group{\n width:90%;\n}\n.download-button{\n margin-top:1rem;\n}", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":";AACA;CACC,iBAAiB;AAClB;;AAEA,2BAA2B;AAC3B;CACC,YAAY;CACZ,kBAAkB;CAClB,cAAc;CACd,4BAA4B;AAC7B;;AAEA,aAAa;AACb;CACC,MAAM;CACN,YAAY;CACZ,kBAAkB;CAClB,WAAW;AACZ;AACA;CACC,wBAAwB;AACzB;;AAEA,iBAAiB;AACjB;CACC,MAAM;CACN,aAAa;CACb,qBAAqB;CACrB,kBAAkB;CAClB,uBAAuB;CACvB,WAAW;AACZ;;AAEA;CACC,SAAS;AACV;AACA;CACC,eAAe;AAChB","file":"styles.css","sourcesContent":["\nbody {\n padding-top: 65px; \n}\n\n/***primary content area***/\n.body{\n display:flex;  \n flex-direction:row;\n flex-wrap:wrap;\n justify-content:space-around;\n}\n\n/***Canvas***/\n.canvas-area{\n flex:2;\n display:flex;\n align-items:center;\n margin:10px;\n}\n.img-canvas{\n border:1px solid #000000;\n}\n\n/***Input Area***/\n.input-area{\n flex:1;\n display: flex;\n flex-direction:column;\n align-items:center;\n justify-content: center;\n margin:1rem;\n}\n\n.form-group{\n width:90%;\n}\n.download-button{\n margin-top:1rem;\n}"]}]);
 // Exports
 module.exports = exports;
 
@@ -545,7 +545,43 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _general__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./general */ "./src/js/general.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+ //Variable to store device width
+
+var deviceWidth = window.innerWidth;
+
+var Memes =
+/*#__PURE__*/
+function () {
+  function Memes() {
+    _classCallCheck(this, Memes);
+
+    //Creating a reference to all the required DOM elements in the class.
+    //Variables that start with a $ contain a reference to the DOM elements
+    this.$canvas = document.querySelector('#imgCanvas');
+    this.$topTextInput = document.querySelector('#topText');
+    this.$bottomTextInput = document.querySelector('#bottomText');
+    this.$imageInput = document.querySelector('#image');
+    this.$downloadButton = document.querySelector('#donwloadMeme');
+  }
+
+  _createClass(Memes, [{
+    key: "createCanvas",
+    value: function createCanvas() {
+      var canvasHeight = Math.min(480, deviceWidth - 30);
+      var canvasWidth = Math.min(640, deviceWidth - 30);
+      this.$canvas.height = canvasHeight;
+      this.$canvas.width = canvasWidth;
+    }
+  }]);
+
+  return Memes;
+}();
 
 /***/ })
 

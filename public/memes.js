@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/general.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/memes.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -533,7 +533,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_styles_css__WEBPACK_IMPORTED_MODULE_0__);
 
 
+/***/ }),
+
+/***/ "./src/js/memes.js":
+/*!*************************!*\
+  !*** ./src/js/memes.js ***!
+  \*************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _general__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./general */ "./src/js/general.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+ //Variable to store device width
+
+var deviceWidth = window.innerWidth;
+
+var Memes =
+/*#__PURE__*/
+function () {
+  function Memes() {
+    _classCallCheck(this, Memes);
+
+    //Creating a reference to all the required DOM elements in the class.
+    //Variables that start with a $ contain a reference to the DOM elements
+    this.$canvas = document.querySelector('#imgCanvas');
+    this.$topTextInput = document.querySelector('#topText');
+    this.$bottomTextInput = document.querySelector('#bottomText');
+    this.$imageInput = document.querySelector('#image');
+    this.$downloadButton = document.querySelector('#donwloadMeme');
+  }
+
+  _createClass(Memes, [{
+    key: "createCanvas",
+    value: function createCanvas() {
+      var canvasHeight = Math.min(480, deviceWidth - 30);
+      var canvasWidth = Math.min(640, deviceWidth - 30);
+      this.$canvas.height = canvasHeight;
+      this.$canvas.width = canvasWidth;
+    }
+  }]);
+
+  return Memes;
+}();
+
 /***/ })
 
 /******/ });
-//# sourceMappingURL=general.js.map
+//# sourceMappingURL=memes.js.map
