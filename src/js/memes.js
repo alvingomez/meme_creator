@@ -13,13 +13,8 @@ class Memes {
       this.$imageInput  = document.querySelector('#image');
       this.$downloadButton = document.querySelector('#donwloadMeme');
 
-      this.createCanvas;
-      
-      /*
-      document.addEventListener('click', function(){
-         document.getElementById('').innerHTML='Hello World';
-         
-      });*/
+      this.createCanvas;     
+    
    }
 
     //Creating a Canvas with height and width 
@@ -33,20 +28,29 @@ class Memes {
    //A function that renders the meme to the canvas
    //this will contain the primary canvas renderer
    createMeme() {
+      debugger;
+      let context = this.$canvas.getcontext('2d')
+      if (this.$imageInput.files && this.$imageInput.files[0]){
       console.log('rendered');
+      }
       
    }
    //An event listener that listens to the keyup event on these input boxes. 
-   addEventListeners() {               
+   addEventListeners() {       
+      //This creates an array of reference objects to all the target input elements.        
       let inputNodes = [this.$topTextInput, this.$bottomTextInput, this.$imageInput];
       inputNodes.forEach((e) => {
-         e.addEventListener('keyup', this.createMeme);
+         e.addEventListener('keyup', this.createMeme);      
       });
-      }    
-   }
+      //
+      inputNodes.forEach((e) => {
+         e.addEventListener('change', this.createMeme);
+      })
+   }    
+}
 
       
 
 
 let x = new Memes();
-//console.log(x.createCanvas);
+console.log(x.addEventListeners());
