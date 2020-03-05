@@ -28,8 +28,8 @@ class Memes {
    //A function that renders the meme to the canvas
    //this will contain the primary canvas renderer
    createMeme() {
-      debugger;
-      let context = this.$canvas.getcontext('2d')
+      //debugger;
+      let context = this.$canvas.getContext('2d')
       if (this.$imageInput.files && this.$imageInput.files[0]){
       console.log('rendered');
       }
@@ -37,6 +37,7 @@ class Memes {
    }
    //An event listener that listens to the keyup event on these input boxes. 
    addEventListeners() {       
+      this.createMeme = this.createMeme.bind(this);
       //This creates an array of reference objects to all the target input elements.        
       let inputNodes = [this.$topTextInput, this.$bottomTextInput, this.$imageInput];
       inputNodes.forEach((e) => {
@@ -51,6 +52,5 @@ class Memes {
 
       
 
-
 let x = new Memes();
-console.log(x.addEventListeners());
+x.addEventListeners();
