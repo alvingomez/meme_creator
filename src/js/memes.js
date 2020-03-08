@@ -31,9 +31,13 @@ class Memes {
       //debugger;
       let context = this.$canvas.getContext('2d')
       if (this.$imageInput.files && this.$imageInput.files[0]){
-      console.log('rendered');
-      }
-      
+         let reader = new FileReader();
+            reader.onload = () => {
+               console.log('File completely read')
+            }
+            reader.readAsDataURL(this.$imageInput.files[0]);
+            console.log('This will get printer first');
+         };         
    }
    //An event listener that listens to the keyup event on these input boxes. 
    addEventListeners() {       
