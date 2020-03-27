@@ -28,13 +28,28 @@ class Memes {
    //A function that renders the meme to the canvas
    //this will contain the primary canvas renderer
    createMeme() {
-      //debugger;
-      let context = this.$canvas.getContext('2d')
-      if (this.$imageInput.files && this.$imageInput.files[0]){
+      
+      let context = this.$canvas.getContext('2d');
+      if ( this.$imageInput.files && this.$imageInput.files[0]){
+
+         //created a new instance of FileReader in the reader variable
          let reader = new FileReader();
-            reader.onload = () => {
-               console.log('File completely read')
+         
+            //This event is triggered each time the reading operation is successfully completed.
+            reader.onload = () => {  //event handler
+               
+               //I need to create an image object using the result from the file reader.               
+               let image = new Image(); //image constructor
+               image.onload = () => {
+                  this.$canvas.height = image.height;
+                  this.$canvas.width = image.width;
+               };
+               
+               image.src = reader.result;
             }
+         //Starts reading the contents of the specified Blob, once finished, the result
+         // attribute contains a data: URL representing the file's data.
+         //JS will execute this line first and find that is an asynchronous event.
             reader.readAsDataURL(this.$imageInput.files[0]);
             console.log('This will get printer first');
          };         
@@ -47,7 +62,8 @@ class Memes {
       inputNodes.forEach((e) => {
          e.addEventListener('keyup', this.createMeme);      
       });
-      //
+      //If the user copies and pastes text into the text inputs without pressing any
+      //keyboard buttons, we need to handle the change
       inputNodes.forEach((e) => {
          e.addEventListener('change', this.createMeme);
       })
@@ -58,3 +74,4 @@ class Memes {
 
 let x = new Memes();
 x.addEventListeners();
+x.createCanvas();
