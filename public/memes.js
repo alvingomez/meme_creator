@@ -568,7 +568,10 @@ function () {
     this.$bottomTextInput = document.querySelector('#bottomText');
     this.$imageInput = document.querySelector('#image');
     this.$downloadButton = document.querySelector('#donwloadMeme');
-  }
+    this.createCanvas;
+  } //Creating a Canvas with height and width 
+  //Reduced the width by 30 to have space for the margins.
+
 
   _createClass(Memes, [{
     key: "createCanvas",
@@ -577,11 +580,37 @@ function () {
       var canvasWidth = Math.min(640, deviceWidth - 30);
       this.$canvas.height = canvasHeight;
       this.$canvas.width = canvasWidth;
+    } //A function that renders the meme to the canvas
+    //this will contain the primary canvas renderer
+
+  }, {
+    key: "createMeme",
+    value: function createMeme() {
+      console.log('rendered');
+    } //An event listener that listens to the keyup event on these input boxes. 
+
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      var _this = this;
+
+      //This creates an array of reference objects to all the target input elements.        
+      var inputNodes = [this.$topTextInput, this.$bottomTextInput, this.$imageInput];
+      inputNodes.forEach(function (e) {
+        e.addEventListener('keyup', _this.createMeme);
+      }); //
+
+      inputNodes.forEach(function (e) {
+        e.addEventListener('change', _this.createMeme);
+      });
     }
   }]);
 
   return Memes;
 }();
+
+var x = new Memes();
+console.log(x.addEventListeners());
 
 /***/ })
 
