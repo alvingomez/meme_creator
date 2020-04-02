@@ -43,6 +43,10 @@ class Memes {
                image.onload = () => {
                   this.$canvas.height = image.height;
                   this.$canvas.width = image.width;
+               //Once the canvas resized, the next step is to erase the canvas.
+               //The rectangular area is the entire canvas
+                  context.clearRect(0,0, this.$canvas.height, this.$canvas.width);
+                  context.drawImage(image, 0, 0);  //This load's the image into the canvas
                };
                
                image.src = reader.result;
@@ -69,6 +73,7 @@ class Memes {
       })
    }    
 }
+
 
       
 
