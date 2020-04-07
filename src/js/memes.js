@@ -43,10 +43,17 @@ class Memes {
                image.onload = () => {
                   this.$canvas.height = image.height;
                   this.$canvas.width = image.width;
+                  console.log(this.$canvas.height)
                //Once the canvas resized, the next step is to erase the canvas.
                //The rectangular area is the entire canvas
                   context.clearRect(0,0, this.$canvas.height, this.$canvas.width);
                   context.drawImage(image, 0, 0);  //This load's the image into the canvas
+               
+               //font size that is 4% of the average of the image height and width
+                  let fontSize = ( (this.$canvas.width + this.$canvas.height) / 2) * 4 / 100;
+                  context.font = `$({fontSize}pt sans-serif`
+                  context.textAlign = 'center';
+                  context.textBaseline = 'top'
                };
                
                image.src = reader.result;
